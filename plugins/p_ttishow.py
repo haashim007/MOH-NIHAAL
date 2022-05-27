@@ -36,29 +36,24 @@ async def save_group(bot, message):
                 pass
             await bot.leave_chat(message.chat.id)
             return
-        buttons = [[
-            InlineKeyboardButton('🍁 ᴏᴡɴᴇʀ', url='https://t.me/NL_MP4'),
-            InlineKeyboardButton('🌿 ɢʀᴏᴜᴘ', url='https://t.me/movie_lookam')
-        ]]
+        buttons = [
+            [
+                InlineKeyboardButton('𝙷𝙾𝚆 𝚃𝙾 𝚄𝚂𝙴 𝙼𝙴', url=f"https://t.me/{temp.U_NAME}?start=help")
+            ]
+            ]
         reply_markup=InlineKeyboardMarkup(buttons)
-        await message.reply_video(
-            video="https://telegra.ph/file/f264ce1113efb81c8a682.mp4",
-            caption=f"<b>💖 𝚃𝙷𝙰𝙽𝙺 𝚈𝙾𝚄 𝙵𝙾𝚁 𝙰𝙳𝙳𝙸𝙽𝙶 {message.chat.title} 💖\n\n✨ 𝙸𝙵 𝚈𝙾𝚄 𝙷𝙰𝚅𝙴 𝙰𝙽𝚈 𝚀𝚄𝙴𝚂𝚃𝙸𝙾𝙽 & 𝙳𝙾𝚄𝙱𝚃 𝙲𝙾𝙽𝚃𝙰𝙲𝚃 𝙼𝚈 𝙾𝚆𝙽𝙴𝚁 ✨</b>",
+        await message.reply_text(
+            text=f"<b>›› 𝚃𝙷𝙰𝙽𝙺𝚂 𝚃𝙾 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿.\n›› 𝙳𝙾𝙽'𝚃 𝙵𝙾𝚁𝙶𝙴𝚃 𝚃𝙾 𝙼𝙰𝙺𝙴 𝙼𝙴 𝙰𝙳𝙼𝙸𝙽.\n›› 𝙸𝚂 𝙰𝙽𝚈 𝙳𝙾𝚄𝙱𝚃𝚂 𝙰𝙱𝙾𝚄𝚃 𝚄𝚂𝙸𝙽𝙶 𝙼𝙴 𝙲𝙻𝙸𝙲𝙺 𝙱𝙴𝙻𝙾𝚆 𝙱𝚄𝚃𝚃𝙾𝙽..⚡⚡.</b>",
             reply_markup=reply_markup)
     else:
         for u in message.new_chat_members:
-                buttons = [[
-                InlineKeyboardButton('🔰 ɢʀᴏᴜᴘ ʀᴜʟᴇs 🔰', url="https://telegra.ph/GROUP-RULES-04-24")
-            ]]
-                if (temp.MELCOW).get('welcome') is not None:
-                    try:
-                        await (temp.MELCOW['welcome']).delete()
-                    except:
-                        pass
-                temp.MELCOW['welcome'] = await message.reply_video(
-                video="https://telegra.ph/file/922ba803c3e701590dc97.mp4",
-                caption=f"<b>💖 𝙷𝙴𝙻𝙻𝙾 𝙼𝚈 𝙵𝚁𝙸𝙴𝙽𝙳 {u.mention},</b><b> 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 </b><b>{message.chat.title} 💖</b>\n\n<b>✨ 𝙷𝙰𝚅𝙴 𝙰 𝙽𝙸𝙲𝙴 𝙳𝙰𝚈 𝙱𝚁𝙾𝚃𝙷𝙴𝚁 & 𝚂𝙸𝚂𝚃𝙴𝚁 ✨</b>",
-                reply_markup=InlineKeyboardMarkup(buttons))
+            if (temp.MELCOW).get('welcome') is not None:
+                try:
+                    await (temp.MELCOW['welcome']).delete()
+                except:
+                    pass
+            temp.MELCOW['welcome'] = await message.reply(f"<b>Hey ♥️ {u.mention}, Welcome to {message.chat.title}.../</b>")
+
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
